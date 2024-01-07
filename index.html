@@ -11,6 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
     <style>
+        ::-webkit-scrollbar {
+            width: 15px; /* Adjust as needed */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0075ff;
+        }
+
+        ::-webkit-scrollbar-button {
+            display: none;
+        }
         .row{
             display: flex;
             justify-content: space-between;
@@ -436,9 +447,130 @@
         .reminder .image-text .dot.red::after{
             background-color: #f44336;
         }
-        
+        .post .image-text{
+            justify-content: flex-start;
+            gap:10px;
+            padding:30px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .post p{
+            padding:30px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .post .image-text .image{
+            max-width: 50px;;
+        }
+        .post .icons{
+            padding:20px 0;
+        }
         .post .icons .icon{
             color : #888
+        }
+        .socials{
+            gap:10px;
+            margin-top:20px;
+        }
+        .social.twitter{
+            background-color: rgb(24 119 242 / 20%);
+        }
+        .social.facebook{
+            background-color: rgb(24 119 242 / 20%);
+        }
+        .social.youtube{
+            background-color: rgb(255 0 0 / 20%);
+        }
+        .social.linkedin{
+            background-color: rgb(0 119 181 / 20%);
+        }
+        .social .icon{
+            width: 60px;
+            height: 60px;
+            display: flex;
+            font-size: 30px;
+            justify-content: center;
+            color: white;
+            align-items: center;
+        }
+        .social .followers{
+            flex-grow: 1;
+            padding-left:15px;
+        }
+        .social.twitter .icon{
+            background-color: #1da1f2;
+        }
+        .social.facebook .icon{
+            background-color: #1877f2;
+        }
+        .social.youtube .icon{
+            background-color: #ff0000;
+        }
+        .social.linkedin .icon{
+            background-color: #0077b5;
+        }
+        .social.twitter a{
+            background-color: #1da1f2;
+        }
+        .social.facebook a{
+            background-color: #1877f2;
+        }
+        .social.youtube a{
+            background-color: #ff0000;
+        }
+        .social.linkedin a{
+            background-color: #0077b5;
+        }
+        table{
+            width: 100%;
+            margin-top:20px;
+        }
+        td,th{
+            padding: 10px;
+        }
+        td{
+            border:1px solid #eee;
+            padding:15px;
+        }
+        th{
+            background-color: #eee;
+            border-right: 1px solid #eee;
+            text-align: left;
+        }
+        table{
+            border-spacing: 0;
+        }
+        table .team{
+            width: fit-content;
+        }
+        table .button.red{
+            background-color: #f44336;
+        }
+        table .button.blue{
+            background-color: #0075ff;
+        }
+        table .button.green{
+            background-color: #22c55e;
+        }
+        table .button.orange{
+            background-color: #f59e0b;
+        }
+        table .team .member{
+            max-width: 30px;
+        }
+        table .team .member img{
+            border: 2px solid #fff;
+        }
+        table .team .member:nth-child(2){
+            transform: translateX(-5px);
+            /* border: 1px solid #fff; */
+        }
+        table .team .member:nth-child(3){
+            transform: translateX(-10px);
+        }
+        table .team .member:nth-child(4){
+            transform: translateX(-15px);
+        }
+        table .team .member img{
+            border-radius: 50%;
         }
         @media(max-width:600px){
             .box .space-image{
@@ -976,7 +1108,7 @@
                         </h2>
                         <div class="post">
                             <div class="image-text row"> 
-                                <div class="dot red"></div>
+                                <div class="image"><img src="imgs/avatar.png" alt=""></div>
                                 <div  class="text">
                                     <h4>Osama Elzero
 
@@ -1000,8 +1132,141 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box"></div>
-                    <div class="box full-width"></div>
+                    <div class="box">
+                        <h2>Social Media Stats</h2>
+                        <div class="socials col">
+                            <div class="social twitter row">
+                                <span class="icon"><i class="fa-brands fa-twitter"></i></span>
+                                <span class="followers row align-center">
+                                    <p>90K Followers</p>
+                                    <a class="button">Follow</a>
+                                </span>
+                            </div>
+                            <div class="social facebook row">
+                                <span class="icon"><i class="fa-brands fa-facebook-f"></i></span>
+                                <span  class="followers row align-center">
+                                    <p>2M Like</p>
+                                    <a class="button">Like</a>
+                                </span>
+                            </div>
+                            <div class="social youtube row">
+                                <span class="icon"><i class="fa-brands fa-youtube"></i></span>
+                                <span class="followers row align-center">
+                                    <p>1M Subs</p>
+                                    <a class="button">Subscripe</a>
+                                </span>
+                            </div>
+                            <div class="social linkedin row">
+                                <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
+                                <span class="followers row align-center">
+                                    <p>70K Followers</p>
+                                    <a class="button">Follow</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box full-width">
+                        <h2>Projects</h2>
+                        <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Finish Date</th>
+                                    <th>Client</th>
+                                    <th>Price</th>
+                                    <th>Team	</th>
+                                    <th>Status</th>
+                                </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Ministry Wikipedia	</td>
+                                    <td>10 May 2022	</td>
+                                    <td>Ministry</td>
+                                    <td>
+                                        $5300	
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                                    </div>	</td>
+                                    <td><span class="button orange">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Elzero Shop		</td>
+                                    <td>12 Oct 2021	</td>
+                                    <td>Elzero Company	</td>
+                                    <td>
+                                        $1500	                                
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                    </div>	</td>
+                                    <td><span class="button blue">In Progress</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Bouba App</td>
+                                    <td>05 Sep 2021		</td>
+                                    <td>Bouba	</td>
+                                    <td>
+                                        $800	          
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                    
+                                    </div>	</td>
+                                    <td><span class="button green">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mahmoud Website	</td>
+                                    <td>22 May 2021		</td>
+                                    <td>Mahmoud		</td>
+                                    <td>
+                                        $600		          
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                    
+                                    </div>	</td>
+                                    <td><span class="button green">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Sayed Website	</td>
+                                    <td>24 May 2021		</td>
+                                    <td>Sayed			</td>
+                                    <td>
+                                        $300	
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                    
+                                    </div>	</td>
+                                    <td><span class="button red">Rejected</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Arena Application		</td>
+                                    <td>01 Mar 2021			</td>
+                                    <td>Arena Company				</td>
+                                    <td>
+                                        $2600		
+                                    </td>
+                                    <td><div class="team row">
+                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                        <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                                    
+                                    </div>	</td>
+                                    <td><span class="button green">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
            </div>
         </main>
