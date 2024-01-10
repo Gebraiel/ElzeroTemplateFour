@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,73 +10,129 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="css/defaults.css" rel="stylesheet">
     <style>
-        .container{
-            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        .container {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            width: 75%;
         }
-        .span-rows{
-            grid-row: span 2;
+        .row.start{
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap:20px;
         }
-        .file .image-text .image{
-            width:70px;
+        .statistics{
+            flex-grow: 1;
         }
-        .file .image-text{
-            gap:10px;
-        }
-        .user{
-            margin:5px 0;
-        }
-        .file-details{
-            padding-top:0px;
-            border-top: 1px solid #eee;
-        }
-        .download-icon{
-            color:#888;
+        .file .image-text .image {
+            width: 70px;
         }
 
-        .uploads .image-text{
-            gap:10px;
+        .file .image-text {
+            gap: 10px;
         }
-        .upload{
-            padding:10px 0;
+
+        .user {
+            margin: 5px 0;
         }
-        .upload .icon{
+
+        .file-details {
+            padding-top: 0px;
+            border-top: 1px solid #eee;
+        }
+
+        .download-icon {
+            color: #888;
+        }
+
+        .uploads{
+            margin-top:15px;
+
+        }
+        .uploads .image-text {
+            gap: 10px;
+        }
+        .box .image-text .image{
+            transition: 0.3s;
+        }
+        .box:hover .image-text .image{
+            transform: rotate(5deg);
+        }
+        .upload {
+            padding: 10px 0;
+        }
+        .upload .icon {
             width: 40px;
             height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .icon.blue{
+        .icon.blue {
             background-color: rgb(0 117 255 / 20%);
-            color:#0075ff;
+            color: #0075ff;
         }
-        .icon.green{
+
+        .icon.green {
             background-color: rgb(34 197 94 / 20%);
-            color:#22c55e;
+            color: #22c55e;
         }
-        .icon.red{
+
+        .icon.red {
             background-color: rgb(244 67 54 / 20%);
-            color:#f44336;
+            color: #f44336;
         }
-        .icon.orange{
+
+        .icon.orange {
             background-color: rgb(245 158 11 / 20%);
-            color:#f59e0b;
+            color: #f59e0b;
         }
-        .upload{
+
+        .upload {
             border: 1px solid #eee;
-            padding:10px;
+            padding: 10px;
         }
-        .uploads{
-            gap:10px;
+
+        .uploads {
+            gap: 14px;
         }
+
         .uploads .button {
             margin: auto;
+            padding:10px 15px; 
+        }
+        .uploads .button i{
+            transform: translateY(0);
+        }
+        .uploads .button:hover i{
+            animation:bounce 0.6s linear infinite alternate;
+        } 
+
+        @media(max-width:991px){
+            .row.start{
+                flex-direction: column-reverse;
+            }
+            .container,.statistics{
+                width:100%;
+            }
+        }
+        @keyframes bounce{
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(-5px);
+            }
+            /* 100%{
+                transform: translateY(0);
+            } */
 
         }
     </style>
 </head>
+
 <body>
     <div class="page-container">
         <div class="sidebar">
@@ -84,239 +141,471 @@
                 <div class="divider"></div>
             </div>
             <div class="menu">
-                <a href="index.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
-                <a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a>
-                <a href="profile.html"><i class="fa-regular fa-user"></i><p>Profile</p></a>
-                <a class="active" href="projects.html"><i class="fa-solid fa-diagram-project"></i><p>Projects</p></a>
-                <a href="courses.html"><i class="fa-solid fa-graduation-cap"></i><p>Courses</p></a>
-                <a href="friends.html"><i class="fa-regular fa-circle-user"></i><p>Friends</p></a>
-                <a href="files.html"><i class="fa-regular fa-file"></i><p>Files</p></a>
-                <a href="plans.html"><i class="fa-regular fa-credit-card"></i><p>Plans</p></a>
+                <a href="index.html"><i class="fa-solid fa-chart-gantt"></i>
+                    <p>Dashboard</p>
+                </a>
+                <a href="settings.html"><i class="fa-solid fa-gear"></i>
+                    <p>Settings</p>
+                </a>
+                <a href="profile.html"><i class="fa-regular fa-user"></i>
+                    <p>Profile</p>
+                </a>
+                <a  href="projects.html"><i class="fa-solid fa-diagram-project"></i>
+                    <p>Projects</p>
+                </a>
+                <a href="courses.html"><i class="fa-solid fa-graduation-cap"></i>
+                    <p>Courses</p>
+                </a>
+                <a href="friends.html"><i class="fa-regular fa-circle-user"></i>
+                    <p>Friends</p>
+                </a>
+                <a class="active" href="files.html"><i class="fa-regular fa-file"></i>
+                    <p>Files</p>
+                </a>
+                <a href="plans.html"><i class="fa-regular fa-credit-card"></i>
+                    <p>Plans</p>
+                </a>
             </div>
         </div>
         <main>
-           <div class="top-bar">
+            <div class="top-bar">
                 <div class="search-container"><input class="search" type="search" placeholder="Type A Keyword"></div>
                 <div class="notification">
                     <span class="bell-icon"><i class="fa-regular fa-bell"></i></span>
                     <div class="image"><img src="imgs/avatar.png"></div>
                 </div>
-           </div>
-           <div class="main-content">
+            </div>
+            <div class="main-content">
                 <h1 class="title">Files</h1>
-                <div class="container">
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/pdf.svg" alt=""></div>
-                                <div class="text">my-file.pdf</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/avi.svg" alt=""></div>
-                                <div class="text">my-file.avi</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/eps.svg" alt=""></div>
-                                <div class="text">my-file.eps</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/psd.svg" alt=""></div>
-                                <div class="text">my-file.psd</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/dll.svg" alt=""></div>
-                                <div class="text">my-file.dll</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box span-rows">
-                    <div class="uploads col ">
-                        <div class="upload row align-center">
-                            <div class="image-text row"> 
-                                <div class="icon blue">
-                                    <i class="fa-regular fa-file-pdf"></i>
+                <div class="row start">
+                    <div class="container">
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/pdf.svg" alt=""></div>
+                                    <div class="text">my-file.pdf</div>
                                 </div>
-                                <div  class="text">
-                                    <p>PDF Files
-                                    </p>
-                                    <h5>130
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/avi.svg" alt=""></div>
+                                    <div class="text">my-file.avi</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/eps.svg" alt=""></div>
+                                    <div class="text">my-file.eps</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/psd.svg" alt=""></div>
+                                    <div class="text">my-file.psd</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/dll.svg" alt=""></div>
+                                    <div class="text">my-file.dll</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/png.svg" alt=""></div>
+                                    <div class="text">my-file.png</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/dll.svg" alt=""></div>
+                                    <div class="text">my-file.dll</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/png.svg" alt=""></div>
+                                    <div class="text">my-file.png</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/psd.svg" alt=""></div>
+                                    <div class="text">my-file.psd</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/pdf.svg" alt=""></div>
+                                    <div class="text">my-file.pdf</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/avi.svg" alt=""></div>
+                                    <div class="text">my-file.avi</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/eps.svg" alt=""></div>
+                                    <div class="text">my-file.eps</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/pdf.svg" alt=""></div>
+                                    <div class="text">my-file.pdf</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/avi.svg" alt=""></div>
+                                    <div class="text">my-file.avi</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/eps.svg" alt=""></div>
+                                    <div class="text">my-file.eps</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/psd.svg" alt=""></div>
+                                    <div class="text">my-file.psd</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/dll.svg" alt=""></div>
+                                    <div class="text">my-file.dll</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/png.svg" alt=""></div>
+                                    <div class="text">my-file.png</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/dll.svg" alt=""></div>
+                                    <div class="text">my-file.dll</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/png.svg" alt=""></div>
+                                    <div class="text">my-file.png</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>20/06/2020</h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/psd.svg" alt=""></div>
+                                    <div class="text">my-file.psd</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>16/5/2021
+                                    </h5>
+                                    <h5>15.1MB
                                     </h5>
                                 </div>
                             </div>
-                            <h5 >2.9mb
-                            </h5>
                         </div>
-                        <div class="upload row align-center">
-                            <div class="image-text row"> 
-                                <div class="icon green">
-                                    <i class="fa-regular fa-images"></i>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/pdf.svg" alt=""></div>
+                                    <div class="text">my-file.pdf</div>
                                 </div>
-                                <div  class="text">
-                                    <p>PDF Files
-                                    </p>
-                                    <h5>130
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>16/5/2021
+                                    </h5>
+                                    <h5>5.5MB</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/avi.svg" alt=""></div>
+                                    <div class="text">my-file.avi</div>
+                                </div>
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>16/5/2021
+                                    </h5>
+                                    <h5>12.5MB
                                     </h5>
                                 </div>
                             </div>
-                            <h5 >2.9mb
-                            </h5>
                         </div>
-                        <div class="upload row align-center">
-                            <div class="image-text row"> 
-                                <div class="icon red">
-                                    <i class="fa-regular fa-file-word"></i>
+                        <div class="box">
+                            <div class="file">
+                                <div class="download-icon"><i class="fa-solid fa-download"></i></div>
+                                <div class="image-text col align-center">
+                                    <div class="image"><img src="imgs/eps.svg" alt=""></div>
+                                    <div class="text">my-file.eps</div>
                                 </div>
-                                <div  class="text">
-                                    <p>PDF Files
-                                    </p>
-                                    <h5>130
+                                <h5 class="user">Elzero</h5>
+                                <div class="file-details row">
+                                    <h5>16/5/2021
                                     </h5>
+                                    <h5>2.7MB</h5>
                                 </div>
                             </div>
-                            <h5 >2.9mb
-                            </h5>
                         </div>
-                        <div class="upload row align-center">
-                            <div class="image-text row"> 
-                                <div class="icon orange">
-                                    <i class="fa-solid fa-file-csv"></i>
-                                </div>
-                                <div  class="text">
-                                    <p>PDF Files
-                                    </p>
-                                    <h5>130
-                                    </h5>
-                                </div>
-                            </div>
-                            <h5 >2.9mb
-                            </h5>
-                        </div>
-                       
-                     
-                        <a href="" class="button blue"><i class="fa-solid fa-angles-up"></i> Upload</a>
                     </div>
-                   </div>
-                  
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/png.svg" alt=""></div>
-                                <div class="text">my-file.png</div>
+                    <div class="box statistics">
+                        <h2>Files Statistics
+                        </h2>
+                        <div class="uploads col ">
+                            <div class="upload row align-center">
+                                <div class="image-text row">
+                                    <div class="icon blue">
+                                        <i class="fa-regular fa-file-pdf"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>PDF Files
+                                        </p>
+                                        <h5>130
+                                        </h5>
+                                    </div>
+                                </div>
+                                <h5>6.5GB
+
+                                </h5>
                             </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
+                            <div class="upload row align-center">
+                                <div class="image-text row">
+                                    <div class="icon green">
+                                        <i class="fa-regular fa-images"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Images
+                                        </p>
+                                        <h5>115 Files
+                                        </h5>
+                                    </div>
+                                </div>
+                                <h5>3.5GB
+
+                                </h5>
                             </div>
+                            <div class="upload row align-center">
+                                <div class="image-text row">
+                                    <div class="icon red">
+                                        <i class="fa-regular fa-file-word"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Word Files
+
+                                        </p>
+                                        <h5>110 Files
+
+                                        </h5>
+                                    </div>
+                                </div>
+                                <h5>3.2GB
+
+                                </h5>
+                            </div>
+                            <div class="upload row align-center">
+                                <div class="image-text row">
+                                    <div class="icon orange">
+                                        <i class="fa-solid fa-file-csv"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>CSV Files
+
+                                        </p>
+                                        <h5>99 Files
+
+                                        </h5>
+                                    </div>
+                                </div>
+                                <h5>2.9GB
+
+                                </h5>
+                            </div>
+
+
+                            <a href="" class="button blue"><i class="fa-solid fa-angles-up"></i> Upload</a>
                         </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/dll.svg" alt=""></div>
-                                <div class="text">my-file.dll</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/png.svg" alt=""></div>
-                                <div class="text">my-file.png</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/psd.svg" alt=""></div>
-                                <div class="text">my-file.psd</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="box">
-                        <div class="file">
-                            <div class="download-icon"><i class="fa-solid fa-download"></i></div>
-                            <div class="image-text col align-center">
-                                <div class="image"><img src="imgs/pdf.svg" alt=""></div>
-                                <div class="text">my-file.pdf</div>
-                            </div>
-                            <h5 class="user">Elzero</h5>
-                            <div class="file-details row">
-                                <h5>20/06/2020</h5>
-                                <h5>5.5MB</h5>
-                            </div>
-                        </div>
-                   </div>
+                    </div>
                 </div>
-           </div>
+            </div>
         </main>
     </div>
 
 </body>
+
 </html>
