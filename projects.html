@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
+    <style>
+        .container{
+            grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+        }
+        .team{
+            margin:30px 0 20px;
+            width: fit-content;
+        }
+        .team .member{
+            max-width: 40px;
+        }
+        .team .member img{
+            border: 2px solid #fff;
+        }
+        .team .member:nth-child(2){
+            transform: translateX(-5px);
+            /* border: 1px solid #fff; */
+        }
+        .team .member:nth-child(3){
+            transform: translateX(-10px);
+        }
+        .team .member:nth-child(4){
+            transform: translateX(-15px);
+        }
+        .team .member img{
+            border-radius: 50%;
+        }
+        .project{
+            position: relative;
+        }
+        span.date{
+            position: absolute;
+            right: 0;
+            top:-10px;
+            font-size:12px;
+            color:#888;
+        }
+        .tags{
+            justify-content: flex-end;
+            gap:10px;
+            padding: 20px 0;
+            border:1px solid #eee;
+            border-right: none;
+            border-left:none;
+            font-size: 13px;
+        }
+        .earned-money{
+            padding-top:10px;
+        }
+        .earned-money .progress{
+            width:250px;
+            background-color: #eee;
+            border-radius:15px;
+            height:10px;
+            position: relative;
+        }
+        .earned-money .progress span{
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            border-radius: 15px;
+        }
+        .earned-money .progress.red span{
+            background-color: #f44336;
+        }
+        .earned-money .progress.blue span{
+            background-color: #0075ff;
+        }
+        .earned-money .progress.green span{
+            background-color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="logo">
+                Elzero
+                <div class="divider"></div>
+            </div>
+            <div class="menu">
+                <a href="index.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
+                <a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a>
+                <a href="profile.html"><i class="fa-regular fa-user"></i><p>Profile</p></a>
+                <a class="active" href="projects.html"><i class="fa-solid fa-diagram-project"></i><p>Projects</p></a>
+                <a href="courses.html"><i class="fa-solid fa-graduation-cap"></i><p>Courses</p></a>
+                <a href="friends.html"><i class="fa-regular fa-circle-user"></i><p>Friends</p></a>
+                <a href="files.html"><i class="fa-regular fa-file"></i><p>Files</p></a>
+                <a href="plans.html"><i class="fa-regular fa-credit-card"></i><p>Plans</p></a>
+            </div>
+        </div>
+        <main>
+           <div class="top-bar">
+                <div class="search-container"><input class="search" type="search" placeholder="Type A Keyword"></div>
+                <div class="notification">
+                    <span class="bell-icon"><i class="fa-regular fa-bell"></i></span>
+                    <div class="image"><img src="imgs/avatar.png"></div>
+                </div>
+           </div>
+           <div class="main-content">
+                <h1 class="title">Projects</h1>
+                <div class="container">
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/10/2021</span>
+                            <p>
+                                Elzero Dashboard
+                            </p>
+                            <h5>Elzero Dashboard Project Design And Programming And Hosting</h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+                                <span class="button gray">Hosting</span>
+                                <span class="button gray">Marketing</span>
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="red progress"><span width="50%"></span></span>
+                                <h5>$ 2500</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Academy Portal
+                            </p>
+                            <h5>Academy Portal Project Design And Programming
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="80%"></span></span>
+                                <h5>$ 1800</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Chatting Application
+
+                            </p>
+                            <h5>Chatting Application Project Design
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Design</span>
+
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="blue progress"><span width="100%"></span></span>
+                                <h5>$ 950</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Ahmed Dashboard
+
+                            </p>
+                            <h5>Ahmed Dashboard Project Design And Programming And Hosting
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+                                <span class="button gray">Hosting</span>
+                                <span class="button gray">Marketing</span>
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="60%"></span></span>
+                                <h5>$ 2500</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Ahmed Portal
+
+                            </p>
+                            <h5>Ahmed Portal Project Design And Programming
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+                                
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="70%"></span></span>
+                                <h5>$ 850</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Mohamed Application
+
+                            </p>
+                            <h5>Mohamed Application Project Design
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Design</span>
+
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="red progress"><span width="35%"></span></span>
+                                <h5>$ 950</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Mohamed Dashboard
+
+                            </p>
+                            <h5>Mohamed Dashboard Project Design And Programming And Hosting
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+                                <span class="button gray">Hosting</span>
+                                <span class="button gray">Marketing</span>
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="65%"></span></span>
+                                <h5>$ 1950</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Mohamed Portal
+                            </p>
+                            <h5>Mohamed Portal Project Design And Programming
+
+                            </h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Programming</span>
+                                <span class="button gray">Design</span>
+
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="60%"></span></span>
+                                <h5>$ 1650</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="project">                          
+                            <span class="date">15/6/2022
+                            </span>
+                            <p>
+                                Ahmed Application Project Design
+
+
+
+                            </p>
+                            <h5>Elzero Dashboard Project Design And Programming And Hosting</h5>
+
+                            <div class="team row">
+                                <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                            </div>
+                            <div class="tags row">
+                                <span class="button gray">Design</span>
+                            </div>
+                            <div class="earned-money row align-center">
+                                <span class="green progress"><span width="90%"></span></span>
+                                <h5>$ 950</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+           </div>
+        </main>
+    </div>
+    <script>
+        let progresses = document.querySelectorAll('.earned-money .progress');
+        progresses.forEach((progress)=>{
+            progress.firstElementChild.style.width=progress.firstElementChild.getAttribute('width');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
+    <style>
+        .container{
+            grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+        }
+        .text-toggle{
+            margin:20px 0 30px;
+        }
+        .toggle{
+            border-radius: 15px;
+            color:white;
+            width:60px;
+            height: 30px;
+
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s background-color ease;
+        }
+        .toggle.on{
+            background-color: #0075ff;
+        }
+        .toggle i{
+            position: absolute;
+            font-size: 20px;
+            top:50%;
+            transform: translateY(-50%);
+            transition: right 0.5s ease;
+        }
+        .toggle.on i{
+            right:5px;
+        }
+        .toggle.off i{    
+           right:calc(100% - 25px);
+        }
+        .toggle.off{
+            background-color: #ccc;
+        }
+        textarea{
+            width:100%;
+            height: 150px;
+            border-radius: 8px;
+            border-color:#ccc;
+            padding:10px;
+        }
+
+        form input{
+            padding:10px;
+            border-radius: 8px;
+            outline: none;
+            border:1px solid #ccc;  
+        }
+        form label{
+            margin:20px 0 10px;
+        }
+        form .row{
+            gap:10px;
+        }
+        form .row input{
+            flex-grow: 1;
+            background-color: #ececec;
+            cursor:no-drop;
+        }
+        form .row a{
+            color:#0075ff;
+        }
+
+        .security .row{
+            padding:15px 0;
+            
+        }
+        .security .row:not(:last-child){
+            border-bottom: 1px solid #eee;
+        }
+        .social{
+            background-color: #f6f6f6;
+            border:1px solid #ccc;
+            border-radius: 8px;
+            margin:10px 0;
+        }
+        .social span{
+            width:35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right:1px solid #ccc;
+            opacity: 0.5;
+            transition: 0.5s;
+        }
+        .social input{
+            border:none;
+            background-color: inherit;
+            width: calc(100% - 45px);
+        }
+        .widget{
+            width: fit-content;
+            gap:15px;
+            cursor: pointer;
+            margin:15px 0;
+        }
+        .checkbox{
+            width:20px;
+            height: 20px;
+            
+            border:2px solid #888;
+            border-radius: 5px;
+            position: relative;
+            transition: 0.5s;
+        }
+        .checkbox:hover{
+            border-color:#0075ff
+        }
+        .checkbox i{
+            background-color: #0075ff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            /* border-radius: 5px; */
+            justify-content: center;
+            align-items: center;
+            color:white;
+            position: absolute;
+            left:0;
+            top:0;
+            transform: scale(0) rotate(90deg);
+            transition:0.3s;
+        }
+        .checkbox.checked{
+            border-color:#0075ff;
+        }
+        .checkbox.checked i{
+            transform: scale(1) rotate(0deg);
+        }
+        .backup-durations{
+            padding:10px;
+            border-bottom:1px solid #eee;
+        }
+        .backup-duration{
+            width: fit-content;
+            gap:10px;
+            cursor: pointer;
+            margin:15px 0;
+        }
+        .checbox-radio{
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            border:1px solid #888;
+            position: relative;
+        }
+        .checbox-radio.checked::after{
+            content:"";
+            display: block;
+            width:12px;
+            height:12px;
+            border-radius: 50%;
+            background-color: #0075ff;
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+        }
+        .checbox-radio.checked{
+            border-color:#0075ff
+        }
+        .backup-plans{
+            justify-content: center;
+            gap:20px;
+            margin-top: 20px;
+        }
+        .backup-plans .plan{
+            width:calc(100% / 3 - 20px);
+            padding:20px 0;
+            border:2px solid #eee;
+            border-radius:10px;
+            cursor: pointer;
+            gap:10px;
+        }
+        .backup-plans .plan.active{
+            border-color: #0075ff;
+            color:#0075ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="logo">
+                Elzero
+                <div class="divider"></div>
+            </div>
+            <div class="menu">
+                <a href="index.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
+                <a class="active" href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a>
+                <a href="profile.html"><i class="fa-regular fa-user"></i><p>Profile</p></a>
+                <a href="projects.html"><i class="fa-solid fa-diagram-project"></i><p>Projects</p></a>
+                <a href="courses.html"><i class="fa-solid fa-graduation-cap"></i><p>Courses</p></a>
+                <a href="friends.html"><i class="fa-regular fa-circle-user"></i><p>Friends</p></a>
+                <a href="files.html"><i class="fa-regular fa-file"></i><p>Files</p></a>
+                <a href="plans.html"><i class="fa-regular fa-credit-card"></i><p>Plans</p></a>
+            </div>
+        </div>
+        <main>
+           <div class="top-bar">
+                <div class="search-container"><input class="search" type="search" placeholder="Type A Keyword"></div>
+                <div class="notification">
+                    <span class="bell-icon"><i class="fa-regular fa-bell"></i></span>
+                    <div class="image"><img src="imgs/avatar.png"></div>
+                </div>
+           </div>
+           <div class="main-content">
+                <h1 class="title">Settings</h1>
+                <div class="container">
+                    <div class="box">
+                        <h2>Site Control</h2>
+                        <h5>Control The Website If There Is Maintenance</h5>
+                        <div class="text-toggle row">
+                            <div class="text">
+                                <p>Website Control
+                                </p>
+                                <h5>Open/Close Website And Type The Reason
+                                </h5>
+                            </div>
+                            <div class="toggle on">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                        </div>
+                        <textarea placeholder="Close Message Content"></textarea>
+                    </div>
+                    <div class="box">
+                        <h2>General Info</h2>
+                        <h5>General Information About Your Account</h5>
+                        <form class="col">
+                            <label for="first-name">First Name</label>
+                            <input type="text" name="first-name"placeholder="First Name">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" name="last-name" placeholder="Last Name">
+                            <label for="last-name">Email</label>
+                            <div class="row align-center">
+                                
+                                <input name="email" placeholder="o@nn.com" disabled>
+                                <a href="">Change</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box">
+                        <h2>Security Info
+                        </h2>
+                        <h5>Security Information About Your Account
+
+                        </h5>
+                        
+                        <div class="security">
+                            <div class="row align-center">
+                                <div class="text">
+                                    <p>Two-Factor Authentication
+
+                                    </p>
+                                    <h5>Enable/Disable The Feature
+
+
+                                    </h5>
+                                </div>
+                                <div class="toggle on">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+                            </div>
+                            <div class="row align-center">
+                                <div class="text">
+                                    <p>Two-Factor Authentication</p>
+                                    <h5>Enable/Disable The Feature</h5>
+                                </div>
+                                <a href="" class="button blue">Change</a>
+                            </div>
+                            <div class="row align-center">
+                                <div class="text">
+                                    <p>Devices</p>
+                                    <h5>Check The Login Devices List</h5>
+                                </div>
+                                <a href="" class="button gray">Devices</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h2>Social Info</h2>
+                        <h5>Social Media Information</h5>
+                        <div class="social row">
+                            <span>
+                                <i class="fa-brands fa-twitter"></i>
+                            </span>
+                            <input type="text" placeholder="Twitter Username">
+                        </div>
+                        <div class="social row">
+                            <span>
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </span>
+                            <input type="text" placeholder="Facebook Username">
+                        </div>
+                        <div class="social row">
+                            <span>
+                                <i class="fa-brands fa-linkedin"></i>
+                            </span>
+                            <input type="text" placeholder="Linkedin Username">
+                        </div>
+                        <div class="social row">
+                            <span>
+                                <i class="fa-brands fa-youtube"></i>
+                            </span>
+                            <input type="text" placeholder="Youtube Username">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h2>Widgets Control</h2>
+                        <h5>Show/Hide Widgets</h5>
+                        <div class="widgets">
+                            <div class="row widget align-center">
+                                <div class="checkbox checked"><i class="fa-solid fa-check"></i></div>
+                                <p>Quick Draft</p>
+                            </div>
+                            <div class="row widget align-center">
+                                <div class="checkbox checked"><i class="fa-solid fa-check"></i></div>
+                                <p>Yearly Targets</p>
+                            </div>
+                            <div class="row widget align-center">
+                                <div class="checkbox checked"><i class="fa-solid fa-check"></i></div>
+                                <p>Tickets Statistics</p>
+                            </div>
+                            <div class="row widget align-center">
+                                <div class="checkbox checked"><i class="fa-solid fa-check"></i></div>
+                                <p>Latest News</p>
+                            </div>
+                            <div class="row widget align-center">
+                                <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                                <p>Latest Tasks</p>
+                            </div>
+                            <div class="row widget align-center">
+                                <div class="checkbox checked"><i class="fa-solid fa-check"></i></div>
+                                <p>Top Search Items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h2>Backup Manager</h2>
+                        <h5>Control Backup Time And Location</h5>
+                        
+                        <div class="backup-durations">
+                            <div class="backup-duration row">
+                                <div class="checbox-radio"></div>
+                                <p>Daily</p>
+                            </div>
+                            <div class="backup-duration row">
+                                <div class="checbox-radio checked"></div>
+                                <p>Weekly</p>
+                            </div>
+                            <div class="backup-duration row">
+                                <div class="checbox-radio"></div>
+                                <p>Monthly</p>
+                            </div>
+                        </div>
+                        <div class="backup-plans row">
+                            <div class="plan col align-center ">
+                                <i class="fa-solid fa-server"></i>
+                                <p>Megaman</p>
+                            </div>
+                            <div class="plan col align-center active" >
+                                <i class="fa-solid fa-server"></i>
+                                <p>Elzero</p>
+                            </div>
+                            <div class="plan col align-center">
+                                <i class="fa-solid fa-server"></i>
+                                <p>Sigma</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+           </div>
+        </main>
+    </div>
+    <script>
+        let toggles = document.querySelectorAll('.toggle');
+
+        toggles.forEach((toggle)=>{
+            toggle.addEventListener('click',function(){
+                let icon = toggle.firstElementChild;
+                if(toggle.classList.contains('on')){
+                    toggle.classList.remove('on');
+                    toggle.classList.add('off');
+                    icon.classList.remove('fa-circle-check');
+                    icon.classList.add('fa-circle-xmark');
+                }else{
+                    toggle.classList.remove('off');
+                    toggle.classList.add('on');
+                    icon.classList.remove('fa-circle-xmark');
+                    icon.classList.add('fa-circle-check');
+                   
+                }
+            })
+        })
+    </script>
+    <script>
+        let inputs = document.querySelectorAll('.social input');
+        inputs.forEach((input)=>{
+            input.addEventListener('focus',function(){
+                let icon = input.previousElementSibling;
+                icon.style.opacity = 1;
+            })
+            input.addEventListener('blur',function(){
+                let icon = input.previousElementSibling;
+                icon.style.opacity = 0.5;
+            })
+        })
+    </script>
+    <script>
+        let widgets = document.querySelectorAll('.widget');
+        widgets.forEach((widget)=>{
+            widget.addEventListener('click',function(){
+                console.log('clicked');
+                let checkbox = widget.firstElementChild;
+                checkbox.classList.toggle("checked");
+            })
+        })
+    </script>
+    <script>
+        let durations = document.querySelectorAll('.backup-duration');
+        let radioBoxes = document.querySelectorAll('.checbox-radio')
+        durations.forEach((duration)=>{
+            duration.addEventListener('click',function(){
+                console.log('clicked');
+                let activeRadioBox = duration.firstElementChild;
+                radioBoxes.forEach((radioBox)=>{
+                    radioBox.classList.remove('checked');
+                })
+                activeRadioBox.classList.add('checked')
+                
+            })
+        })
+    </script>
+    <script>
+        let plans = document.querySelectorAll('.backup-plans .plan');
+        plans.forEach((plan)=>{
+            plan.addEventListener('click',function(){
+                console.log('clicked');
+                plans.forEach((p)=>{
+                    p.classList.remove('active');
+                })
+                plan.classList.add('active')
+                
+            })
+        })
+    </script>
+</body>
+</html>

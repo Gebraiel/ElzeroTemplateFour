@@ -11,51 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
     <style>
-        ::-webkit-scrollbar {
-            width: 15px; /* Adjust as needed */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #0075ff;
-        }
-
-        ::-webkit-scrollbar-button {
-            display: none;
-        }
-        .row{
-            display: flex;
-            justify-content: space-between;
-        }
-        .wrap{
-            flex-wrap: wrap;
-        }
-        .align-center{
-            align-items: center;
-        }
-        .col{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .text-center{
-            text-align: center;
-        }
-
-        .dashboard{
-            width:100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
-            gap:20px;
-        }
-       
-        .dashboard .box.full-width{
-            grid-column: 1 / -1;
-        }
-        .dashboard .box{
-            background-color: #fff;
-            border-radius: 8px;
-            padding:15px ;
-        }
+        
         .box .welcome{
             display: flex;
             justify-content: space-between;
@@ -78,10 +34,7 @@
             bottom:0;
             transform: translateY(50%);
         }
-        .box h5{
-            color:#888;
-            margin-top:5px;
-        }
+       
         .box:first-child{
             padding:0;
         }
@@ -113,19 +66,9 @@
             margin-left: auto;
             cursor: pointer;
         }
-        .button{
-            display: block;
-            padding:5px 10px;
-            border-radius: 6px;
-            color:#fff;
-            width: fit-content;
-        }
-        .button.blue{
-            background-color: #0d69d5;
-        }
+       
+        
         .button.gray{
-            background-color: #eee;
-            color:black;
             font-size: 12px;
         }
 
@@ -519,9 +462,16 @@
         .social.linkedin a{
             background-color: #0077b5;
         }
+        .table-container{
+            width: 100%;
+            overflow: scroll;
+
+        }
         table{
             width: 100%;
             margin-top:20px;
+            border-spacing: 0;
+            
         }
         td,th{
             padding: 10px;
@@ -535,9 +485,7 @@
             border-right: 1px solid #eee;
             text-align: left;
         }
-        table{
-            border-spacing: 0;
-        }
+
         table .team{
             width: fit-content;
         }
@@ -578,7 +526,7 @@
             }
         }
         @media(max-width:450px){
-            .dashboard{
+            .container{
                 grid-template-columns: 100%;
             }
             .box .information{
@@ -616,7 +564,7 @@
                 <div class="divider"></div>
             </div>
             <div class="menu">
-                <a class="active" href="dashboard.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
+                <a class="active" href="index.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
                 <a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a>
                 <a href="profile.html"><i class="fa-regular fa-user"></i><p>Profile</p></a>
                 <a href="projects.html"><i class="fa-solid fa-diagram-project"></i><p>Projects</p></a>
@@ -636,7 +584,7 @@
            </div>
            <div class="main-content">
                 <h1 class="title">Dashboard</h1>
-                <div class="dashboard">
+                <div class="container">
                     <div class="box">
                         <div class="welcome">
                             <div class="text">
@@ -1167,105 +1115,107 @@
                     </div>
                     <div class="box full-width">
                         <h2>Projects</h2>
-                        <table>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Finish Date</th>
-                                    <th>Client</th>
-                                    <th>Price</th>
-                                    <th>Team	</th>
-                                    <th>Status</th>
-                                </tr>
-                            <tbody>
-                                <tr>
-                                    <td>Ministry Wikipedia	</td>
-                                    <td>10 May 2022	</td>
-                                    <td>Ministry</td>
-                                    <td>
-                                        $5300	
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-04.png" alt=""></div>
-                                    </div>	</td>
-                                    <td><span class="button orange">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Elzero Shop		</td>
-                                    <td>12 Oct 2021	</td>
-                                    <td>Elzero Company	</td>
-                                    <td>
-                                        $1500	                                
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
-                                    </div>	</td>
-                                    <td><span class="button blue">In Progress</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Bouba App</td>
-                                    <td>05 Sep 2021		</td>
-                                    <td>Bouba	</td>
-                                    <td>
-                                        $800	          
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                    
-                                    </div>	</td>
-                                    <td><span class="button green">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Mahmoud Website	</td>
-                                    <td>22 May 2021		</td>
-                                    <td>Mahmoud		</td>
-                                    <td>
-                                        $600		          
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                    
-                                    </div>	</td>
-                                    <td><span class="button green">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Sayed Website	</td>
-                                    <td>24 May 2021		</td>
-                                    <td>Sayed			</td>
-                                    <td>
-                                        $300	
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                    
-                                    </div>	</td>
-                                    <td><span class="button red">Rejected</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Arena Application		</td>
-                                    <td>01 Mar 2021			</td>
-                                    <td>Arena Company				</td>
-                                    <td>
-                                        $2600		
-                                    </td>
-                                    <td><div class="team row">
-                                        <div class="member"><img src="imgs/team-01.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-02.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-03.png" alt=""></div>
-                                        <div class="member"><img src="imgs/team-04.png" alt=""></div>
-                                    
-                                    </div>	</td>
-                                    <td><span class="button green">Completed</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-container">
+                            <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Finish Date</th>
+                                        <th>Client</th>
+                                        <th>Price</th>
+                                        <th>Team	</th>
+                                        <th>Status</th>
+                                    </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Ministry Wikipedia	</td>
+                                        <td>10 May 2022	</td>
+                                        <td>Ministry</td>
+                                        <td>
+                                            $5300	
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                                        </div>	</td>
+                                        <td><span class="button orange">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Elzero Shop		</td>
+                                        <td>12 Oct 2021	</td>
+                                        <td>Elzero Company	</td>
+                                        <td>
+                                            $1500	                                
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                        </div>	</td>
+                                        <td><span class="button blue">In Progress</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bouba App</td>
+                                        <td>05 Sep 2021		</td>
+                                        <td>Bouba	</td>
+                                        <td>
+                                            $800	          
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        
+                                        </div>	</td>
+                                        <td><span class="button green">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mahmoud Website	</td>
+                                        <td>22 May 2021		</td>
+                                        <td>Mahmoud		</td>
+                                        <td>
+                                            $600		          
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        
+                                        </div>	</td>
+                                        <td><span class="button green">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sayed Website	</td>
+                                        <td>24 May 2021		</td>
+                                        <td>Sayed			</td>
+                                        <td>
+                                            $300	
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                        
+                                        </div>	</td>
+                                        <td><span class="button red">Rejected</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arena Application		</td>
+                                        <td>01 Mar 2021			</td>
+                                        <td>Arena Company				</td>
+                                        <td>
+                                            $2600		
+                                        </td>
+                                        <td><div class="team row">
+                                            <div class="member"><img src="imgs/team-01.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-02.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-03.png" alt=""></div>
+                                            <div class="member"><img src="imgs/team-04.png" alt=""></div>
+                                        
+                                        </div>	</td>
+                                        <td><span class="button green">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
            </div>

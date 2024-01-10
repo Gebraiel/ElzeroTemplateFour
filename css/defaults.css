@@ -3,6 +3,18 @@
     margin:0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 15px; /* Adjust as needed */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0075ff;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
 body{
     font-family: 'Open Sans', sans-serif;
 }
@@ -40,6 +52,59 @@ main{
 .main-content{
     width: 100%;
     background-color: red;
+}
+.main-content{
+    padding:20px;
+    background-color: #f1f5f9;
+}
+.main-content .title{
+    width: fit-content;
+    position: relative;
+    margin-bottom:40px;
+}
+.main-content .title::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width:70%;
+    height:2px;
+    bottom:-10px;
+    background:linear-gradient(90deg, black 30%,white 30%);
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.align-center{
+    align-items: center;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.text-center{
+    text-align: center;
+}
+
+.container{
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+    gap:20px;
+}
+
+.container .box.full-width{
+    grid-column: 1 / -1;
+}
+.container .box{
+    background-color: #fff;
+    border-radius: 8px;
+    padding:15px ;
 }
 .sidebar .logo{
     text-align: center;
@@ -173,21 +238,23 @@ main{
     width: 30px;
     margin-left:10px;
 }
-.main-content{
-    padding:20px 10px;
-    background-color: #f1f5f9;
+.box h5{
+    color:#888;
+    margin-top:5px;
 }
-.main-content .title{
-    width: fit-content;
-    position: relative;
-    margin-bottom:40px;
-}
-.main-content .title::after{
-    content: "";
+
+.button{
     display: block;
-    position: absolute;
-    width:70%;
-    height:2px;
-    bottom:-10px;
-    background:linear-gradient(90deg, black 30%,white 30%);
+    padding:5px 10px;
+    border-radius: 6px;
+    color:#fff;
+    width: fit-content;
+}
+
+.button.blue{
+    background-color: #0d69d5;
+}
+.button.gray{
+    background-color: #eee;
+    color:black;
 }
