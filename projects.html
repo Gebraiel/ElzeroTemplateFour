@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projects</title>
     <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,11 @@
     <style>
         .container{
             grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+        }
+        @media(max-width:500px){
+            .container{
+                grid-template-columns: 1fr;
+            }
         }
         .team{
             margin:30px 0 20px;
@@ -49,6 +54,7 @@
         }
         .tags{
             justify-content: flex-end;
+            flex-wrap:wrap;
             gap:10px;
             padding: 20px 0;
             border:1px solid #eee;
@@ -60,7 +66,7 @@
             padding-top:10px;
         }
         .earned-money .progress{
-            width:250px;
+            width:40%;
             background-color: #eee;
             border-radius:15px;
             height:10px;
@@ -184,7 +190,6 @@
                             </div>
                             <div class="tags row">
                                 <span class="button gray">Design</span>
-
                             </div>
                             <div class="earned-money row align-center">
                                 <span class="blue progress"><span width="100%"></span></span>

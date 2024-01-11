@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">    <link href="css/defaults.css" rel="stylesheet">
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+        }
+        .full-width{
+            flex-basis:100%;
+            justify-content: flex-start;
+
+            gap:20px;
+        }
+        .width-30{
+            width:30%;
+        }
+        .width-70{
+            width:70%;
+        }
+        .text-toggle{
+            margin:20px 0 30px;
+        }
+        .toggle{
+            border-radius: 15px;
+            color:white;
+            width:60px;
+            height: 30px;
+
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s background-color ease;
+        }
+        .toggle.on{
+            background-color: #0075ff;
+        }
+        .toggle i{
+            position: absolute;
+            font-size: 20px;
+            top:50%;
+            transform: translateY(-50%);
+            transition: right 0.5s ease;
+        }
+        .toggle.on i{
+            right:5px;
+        }
+        .toggle.off i{    
+           right:calc(100% - 25px);
+        }
+        .toggle.off{
+            background-color: #ccc;
+        }
+        .profile-picture{
+            justify-content: center;
+            align-items: center;
+            padding:30px;
+            gap:10px;
+        }
+        .profile-picture .image{
+            max-width: 120px;
+        }
+        .profile-picture .progress{
+            display: block;
+            width:150px;
+            background-color: #eee;
+            border-radius:15px;
+            height:5px;
+            position: relative;
+        }
+        .profile-picture .progress span{
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            border-radius: 15px;
+            background-color: #0075ff;
+            width:75%;
+            left:0;
+            top:0;
+        }
+        .profile-picture .stars ul{
+            color:#f59e0b;
+        }
+        .profile-picture p{
+            color:#888;
+        }
+        .profile-details{
+            flex-grow: 1;
+        }
+        .information{
+            padding:15px;
+            border-left: 1px solid #eee;
+        }
+        .information .row span {
+            flex-basis: 300px;
+            justify-content: flex-start;
+        }
+        .information  span h5{
+            margin-top:0;
+        }
+        
+        .information p{
+            color:#888;
+            font-weight: 500;
+        }
+        .information:first-child{
+            padding-top:0;
+        }
+        .information:not(:last-child){
+            border-bottom: 1px solid #eee;
+            
+        }
+        .tags.row{
+            justify-content: flex-start;
+            gap:10px;
+            padding: 10px 0;
+            
+            font-size: 13px;
+        }
+        .tags:not(:last-child){
+            border-bottom:1px solid #eee;
+        }
+        .badge{
+            padding:10px 0;
+        }
+        .badge:not(:last-child){
+            border-bottom:1px solid #eee;
+        }
+        .badge .image-text{
+            justify-content: flex-start;
+            align-items: center;
+            gap:10px;
+        }
+        .badge .image-text .image{
+            max-width:60px;
+        }
+        .badge .image-text .text{
+            flex-grow: 1
+            ;
+        }
+        @media(max-width:991px){
+            .full-width:nth-child(2){
+                flex-direction: column;
+            }
+            .width-30,.width-70{
+                width:100%;
+            }
+            .information{
+                border-left:none;
+                padding:15px 0;
+            }
+            .profile-picture{
+                padding:30px 0;
+            }
+        }
+        @media(max-width:768px){
+            .box.full-width{
+                flex-direction: column;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="logo">
+                Elzero
+                <div class="divider"></div>
+            </div>
+            <div class="menu">
+                <a href="index.html"><i class="fa-solid fa-chart-gantt"></i><p>Dashboard</p></a>
+                <a href="settings.html"><i class="fa-solid fa-gear"></i><p>Settings</p></a>
+                <a class="active" href="profile.html"><i class="fa-regular fa-user"></i><p>Profile</p></a>
+                <a href="projects.html"><i class="fa-solid fa-diagram-project"></i><p>Projects</p></a>
+                <a href="courses.html"><i class="fa-solid fa-graduation-cap"></i><p>Courses</p></a>
+                <a href="friends.html"><i class="fa-regular fa-circle-user"></i><p>Friends</p></a>
+                <a href="files.html"><i class="fa-regular fa-file"></i><p>Files</p></a>
+                <a href="plans.html"><i class="fa-regular fa-credit-card"></i><p>Plans</p></a>
+            </div>
+        </div>
+        <main>
+           <div class="top-bar">
+                <div class="search-container"><input class="search" type="search" placeholder="Type A Keyword"></div>
+                <div class="notification">
+                    <span class="bell-icon"><i class="fa-regular fa-bell"></i></span>
+                    <div class="image"><img src="imgs/avatar.png"></div>
+                </div>
+           </div>
+           <div class="main-content">
+                <h1 class="title">Profile</h1>
+                <div class="container">
+                    <div class="box full-width row">
+                        <div class="profile-picture col">
+                            <div class="image"><img src="imgs/avatar.png" alt=""></div>
+                            <h3>Gebraiel Malak</h3>
+                            <p>Level 20</p>
+                            <span class="progress"><span></span></span>
+                            <div class="stars">
+                                <ul class="row">
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <h5>550 Rating</h5>
+                        </div>
+                        <div class="profile-details">
+                            <div class="information general">
+                                <p>General Information</p>
+                                <div class="row wrap">
+                                    <span class="row align-center">
+                                        <h5>Full Name:&nbsp;</h5> 
+                                         Gebraiel Malak
+                                    </span>
+                                    <span class="row align-center"><h5>Gender:&nbsp; </h5> Male</span>
+                                    <span class="row align-center"><h5>Country:&nbsp; </h5> Egypt</span>
+                                    <div class="div toggle on">
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="information general">
+                                <p>Personal Information
+                                </p>
+                                <div class="row wrap">
+                                    <span class="row align-center">
+                                        <h5>Email:&nbsp;</h5> 
+                                        o@nn.sa
+                                    </span>
+                                    <span class="row align-center"><h5>Phone:&nbsp; </h5> 019123456789</span>
+                                    <span class="row align-center"><h5>
+                                        Date Of Birth:&nbsp; </h5> 11/8/2001</span>
+                                    <div class="div toggle off">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="information general">
+                                <p>Job Information
+                                </p>
+                                <div class="row wrap">
+                                    <span class="row align-center">
+                                        <h5>Title:&nbsp;</h5> 
+                                        Full Stack Developer
+                                    </span>
+                                    <span class="row align-center"><h5>
+                                        Programming Language:&nbsp; </h5> Python</span>
+                                    <span class="row align-center"><h5>
+                                        Years Of Experience:&nbsp; </h5> 15+</span>
+                                    <div class="div toggle on">
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="information general">
+                                <p>Billing Information
+                                </p>
+                                <div class="row wrap">
+                                    <span class="row align-center">
+                                        <h5>Payment Method:&nbsp;</h5> 
+                                        Paypal
+                                    </span>
+                                    <span class="row align-center"><h5>Email:&nbsp; </h5> email@website.com</span>
+                                    <span class="row align-center"><h5>Subscription:&nbsp; </h5> Monthly</span>
+                                    <div class="div toggle off">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="full-width row">
+                        <div class="box width-30">
+                            <h2>My Skills
+                            </h2>
+                            <h5>Complete Skills List
+    
+                            </h5>
+                            <div class="skills">
+                                <div class="tags row">
+                                    <span class="button gray">HTML</span>
+                                    <span class="button gray">Pugjs</span>
+                                    <span class="button gray">Haml</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">CSS</span>
+                                    <span class="button gray">SASS</span>
+                                    <span class="button gray">Stylus</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">Javascript</span>
+                                    <span class="button gray">TypeScript</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">Vuejs</span>
+                                    <span class="button gray">Reactjs</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">Jest</span>
+                                    <span class="button gray">Jasmine</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">PHP</span>
+                                    <span class="button gray">Laravel</span>
+                                </div>
+                                <div class="tags row">
+                                    <span class="button gray">Python</span>
+                                    <span class="button gray">Django</span>
+                                </div>
+                            </div>
+                        </div>                    
+                        <div class="box width-70">
+                            <h2>Latest Activities
+    
+                            </h2>
+                            <h5>Latest Activities Done By The User
+                            </h5>
+                            <div class="badges">
+                                <div class="badge">
+                                    <div class="image-text row">
+                                        <div class="image"><img src="imgs/activity-01.png" alt=""></div>
+                                        <div class="text">
+                                            <div class="row">
+                                                <p>Store</p>
+                                                <p>18:10</p>
+                                            </div>
+                                            <div class="row">
+                                                <h5>Bought The Mastering Python Course
+                                                </h5>
+                                                <h5>Yesterday</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="badge">
+                                    <div class="image-text row">
+                                        <div class="image"><img src="imgs/activity-02.png" alt=""></div>
+                                        <div class="text">
+                                            <div class="row">
+                                                <p>Academy
+                                                </p>
+                                                <p>16:05
+                                                </p>
+                                            </div>
+                                            <div class="row">
+                                                <h5>Got The PHP Certificate
+    
+                                                </h5>
+                                                <h5>Yesterday</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="badge">
+                                    <div class="image-text row">
+                                        <div class="image"><img src="imgs/activity-03.png" alt=""></div>
+                                        <div class="text">
+                                            <div class="row">
+                                                <p>Badges</p>
+                                                <p>18:05
+                                                </p>
+                                            </div>
+                                            <div class="row">
+                                                <h5>Unlocked The 10 Skills Badge
+    
+                                                </h5>
+                                                <h5>Yesterday</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="badge">
+                                    <div class="image-text row">
+                                        <div class="image"><img src="imgs/activity-01.png" alt=""></div>
+                                        <div class="text">
+                                            <div class="row">
+                                                <p>Store</p>
+                                                <p>12:05
+                                                </p>
+                                            </div>
+                                            <div class="row">
+                                                <h5>Bought The Typescript Course
+    
+                                                </h5>
+                                                <h5>Yesterday</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>                   
+                </div>
+           </div>
+        </main>
+    </div>
+    <script>
+        let toggles = document.querySelectorAll('.toggle');
+
+        toggles.forEach((toggle)=>{
+            toggle.addEventListener('click',function(){
+                let icon = toggle.firstElementChild;
+                if(toggle.classList.contains('on')){
+                    toggle.classList.remove('on');
+                    toggle.classList.add('off');
+                    icon.classList.remove('fa-circle-check');
+                    icon.classList.add('fa-circle-xmark');
+                }else{
+                    toggle.classList.remove('off');
+                    toggle.classList.add('on');
+                    icon.classList.remove('fa-circle-xmark');
+                    icon.classList.add('fa-circle-check');
+                   
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>
